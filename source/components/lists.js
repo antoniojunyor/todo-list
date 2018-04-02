@@ -19,7 +19,8 @@ export default class Lists extends Component {
       onClickDeleteList,
       onAddTask,
       onChangeFormAddTask,
-      listIndex
+      listIndex,
+      onClickAddSubtask
     } = this.props;
 
     const listTasks = list.tasks.map((task, index) => {
@@ -32,6 +33,7 @@ export default class Lists extends Component {
           onClickDeleteSubtask={(subtaskIndex, taskIndex) => onClickDeleteSubtask(subtaskIndex, taskIndex, listIndex)}
           onChangeTask={taskIndex => onChangeTask(taskIndex, listIndex)}
           onChangeSubtask={(subtaskIndex, taskIndex) => onChangeSubtask(subtaskIndex, taskIndex, listIndex)}
+          onClickAddSubtask={(nextSubtaskValue, taskIndex) => onClickAddSubtask(nextSubtaskValue, taskIndex, listIndex)}
         />
       );
     });

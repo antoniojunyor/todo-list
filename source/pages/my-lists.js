@@ -88,6 +88,19 @@ export default class MyLists extends Component {
     }
   }
 
+  addSubtask(nextSubtaskValue, taskIndex, listIndex) {
+    let _list = this.state.lists,
+        _task = _list[listIndex].tasks[taskIndex];
+
+    const newSubtask = {
+      name: nextSubtaskValue,
+      checked: false
+    }
+
+    _task.subtasks.push(newSubtask);
+    this.setState({ list: _list });
+  }
+
   render() {
     const Taskslists = this.state.lists.map((list, index) => {
       return (
@@ -101,6 +114,7 @@ export default class MyLists extends Component {
           onChangeTask={(taskIndex, listIndex) => this.taskStatus(taskIndex, listIndex)}
           onChangeSubtask={(subtaskIndex, taskIndex, listIndex) => this.subtaskStatus(subtaskIndex, taskIndex, listIndex)}
           onAddTask={(nextTaskValue, listIndex) => this.addTask(nextTaskValue, listIndex)}
+          onClickAddSubtask={(nextSubtaskValue, taskIndex, listIndex) => this.addSubtask(nextSubtaskValue, taskIndex, listIndex)}
         />
       );
     });
