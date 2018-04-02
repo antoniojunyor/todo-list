@@ -8,6 +8,6 @@ Is really easy to load the project
 ```$ npm i```
 
 **to run the project on development mode**
-```$ npm run server```
+```$ npm run dev```
 
 **After that, you just have to access the port 9000 on your localhost**
