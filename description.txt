@@ -1,0 +1,65 @@
+Processo Seletivo AutoSeg (FrontEnd)
+
+Objetivo
+
+Desenvolver uma página web seguindo o layout em anexo e com as características abaixo e
+disponibilzar em um repositório no GitHub.
+
+A aplicação é um organizador de listas de tarefas (to-do lists).
+
+A aplicação deve ser apenas telas estáticas, sem necessidade de armazenar dados
+ou se integrar com alguma API de back end.
+
+Requisitos
+
+Utilizar as seguintes tecnologias:
+ - HTML
+ - CSS
+ - JavaScript
+ - Git
+ - JQuery (opcional)
+ - ES6 (opcional)
+ - BootStrap (opcional)
+ - Pré-processadores de CSS como Sass ou Less (opcional)
+ - Biblioteca ou framework JavaScript como React, Vue, Angular ou similares (opcional)
+ - Não é permitido o uso de CoffeeScript
+
+Escopo da aplicação
+Aplicar o layout enviado em anexo. com as seguintes telas
+
+1- Abertura:
+  - Aplicar pattern no fundo da página
+  - Ter links para as telas de cadastro e login
+
+2- Cadastro:
+  - Aplicar validações no formulário
+  - Formulário em caso de sucesso redirecionar para a tela de listas
+
+3- Login:
+  - Aplicar validações no formulário
+  - Formulário em caso de sucesso redirecionar para a tela de listas
+
+4- Listas:
+  - Colocar pelo menos três listas (dados estáticos no HTML)
+  - Apenas uma delas detalhada com tarefas e subtarefas
+    - Colocar pelo menos três tarefas, sendo que uma delas tenha ao menos duas subtarefas (dados estáticos no HTML)
+    - Permitir criação e remoção de tarefas subtarefas
+    - Permitir edição de nome da lista trocando o texto por um input
+    - Permitir marcar tarefa e subtarefa como completa
+      - Ao completar uma tarefa, todas as suas subtarefas devem ser marcadas como feita
+      - Ao marcar todas subtarefas, a tarefa mãe deve ser marcada como completa
+  - Ter link para tela de criação de lista
+
+5- Criação de lista:
+  - Aplicar validações no formulário
+    - Nome da lista é obrigatório
+  - Permitir a criação de várias tarefas. Ao clicar no botão adicionar (+) criar um novo input para a próxima tarefa.
+  - Ao clicar no botão Criar Lista, cria-se a lista e todas as tarefas dos inputs.
+
+Notas
+O HTML e CSS devem ser semanticamente corretos.
+Utilize commits pequenos que demonstrem passos lógicos no desenvolvimento da mini-app.
+Crie um README claro com instruções necessárias para utilizar o projeto.
+Serão avaliados o código, a implementação do layout enviado e a responsividade do layout
+A aplicação será testada nas versões mais recentes do Mozilla Firefox e do Google Chrome
+Fonte utilizada: SF Pro Display nos anexos.
