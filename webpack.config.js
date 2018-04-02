@@ -20,7 +20,7 @@ const css_prod = ExtractTextPlugin.extract({
 });
 
 const html_webpack_plugin = new HtmlWebpackPlugin({
-  title: 'Webpack Boilerplate',
+  title: 'Do It Now',
   hash: true,
   template: './public/index.html'
 });
