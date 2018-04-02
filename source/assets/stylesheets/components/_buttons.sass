@@ -1,0 +1,37 @@
+button, a
+  cursor: pointer
+
+[class*="as-button-"]
+  display: inline-block
+  border-width: 0
+  border-radius: 4px
+  font-size: 16px
+  font-weight: 400
+  line-height: 1.4
+  letter-spacing: .5px
+  text-align: center
+  text-decoration: none
+  white-space: nowrap
+  padding-top: 11.5px
+  padding-left: 15px
+  padding-right: 15px
+  padding-bottom: 11.5px
+  transition: opacity .2s ease-out
+
+  span
+    display: inline-block
+
+  &:hover,
+  &:focus
+    opacity: .9
+
+  &:active
+    opacity: .8
+
+.as-button-orange
+  color: #fff
+  background-color: #ef7734
+
+.as-button-green
+  color: #544236
+  background-color: #d3ce3d
