@@ -77,7 +77,7 @@ export default class MyLists extends Component {
 
   addTask(nextTaskValue, listIndex) {
     let _list = this.state.lists,
-        _task = _list[listIndex].tasks;
+      _task = _list[listIndex].tasks;
 
     if (nextTaskValue) {
       const newTask = {
@@ -88,7 +88,7 @@ export default class MyLists extends Component {
       }
 
       _task.push(newTask);
-      this.setState({ list: _list });
+      this.setState({ lists: _list });
     }
   }
 
