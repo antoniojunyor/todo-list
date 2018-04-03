@@ -20,19 +20,19 @@ export default class MyLists extends Component {
 
   deleteList(listIndex) {
     let _lists = this.state.lists;
-    _lists.shift(listIndex);
+    _lists.splice(listIndex,1);
     this.setState({ lists: _lists });
   }
 
   deleteTask(taskIndex, listIndex) {
     let _lists = this.state.lists;
-    _lists[listIndex].tasks.shift(taskIndex);
+    _lists[listIndex].tasks.splice(taskIndex,1);
     this.setState({ lists: _lists });
   }
 
   deleteSubtask(subtaskIndex, taskIndex, listIndex) {
     let _lists = this.state.lists;
-    _lists[listIndex].tasks[taskIndex].subtasks.shift(subtaskIndex);
+    _lists[listIndex].tasks[taskIndex].subtasks.splice(subtaskIndex,1);
     this.setState({ lists: _lists });
   }
 
