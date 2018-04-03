@@ -11,7 +11,7 @@ export default class MyLists extends Component {
     super(props);
 
     this.state = {
-      lists: [],
+      lists: []
     }
   }
 

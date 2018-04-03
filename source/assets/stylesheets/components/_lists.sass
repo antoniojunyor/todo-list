@@ -54,7 +54,6 @@
         background-position: center
         padding: 0
 
-
       .as-button-edit-list
         background-image: url('../images/icon-edit.png');
 
@@ -98,7 +97,8 @@
         padding-right: 80px
 
       span
-        &::before
+        &::before,
+        &::after
           top: calc(50% - 16px / 2)
           width: 16px
           height: 16px
@@ -116,8 +116,8 @@
 
         &[checked]
           + span
-            &::before
-              background-color: #60b999
+            &::after
+              transform: scale(1)
 
       span
         position: relative
@@ -128,17 +128,24 @@
         line-height: 35px
         padding-left: 25px
 
-        &::before
+        &::before,
+        &::after
           content: ''
           position: absolute
           left: 0
+          border-radius: 2px
+
+        &::before
           border-width: 1px
           border-style: solid
           border-color: #60b999
-          border-radius: 2px
           padding-left: 0
           transition: background-color .2s ease-out
 
+        &::after
+          background-color: #60b999
+          transform: scale(0)
+          transition: transform .2s ease-out
 
       .as-button-delete-task
         width: 35px
@@ -164,7 +171,9 @@
             font-size: 14px
             line-height: 30px
 
-            &::before
+            &::before,
+            &::after
               top: calc(50% - 14px / 2)
+              left: 0
               width: 14px
               height: 14px
