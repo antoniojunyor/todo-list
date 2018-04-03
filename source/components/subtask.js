@@ -7,7 +7,7 @@ const Subtask = ({
   onChangeSubtask
 }) => (
   <li className="as-subtask-item">
-    <input type="checkbox" checked={subtask.checked} onChange={() => onChangeSubtask(subtaskIndex)}/>
+    <input type="checkbox" defaultChecked={subtask.checked} onChange={() => onChangeSubtask(subtaskIndex)}/>
     <span>{subtask.name}</span>
     <button className="as-button-delete-subtask" onClick={() => onClickDeleteSubtask(subtaskIndex)}>excluir subtarefa</button>
   </li>
