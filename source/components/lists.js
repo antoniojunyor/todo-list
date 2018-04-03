@@ -26,7 +26,7 @@ export default class Lists extends Component {
     const listTasks = list.tasks.map((task, index) => {
       return (
         <Task
-          key={index}
+          key={task.id}
           taskIndex={index}
           task={task}
           onClickDeleteTask={taskIndex => onClickDeleteTask(taskIndex, listIndex)}

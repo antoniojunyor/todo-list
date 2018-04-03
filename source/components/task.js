@@ -33,7 +33,7 @@ export default class Task extends Component {
       listSubtasks = task.subtasks.map((subtask, index) => {
         return (
           <Subtask
-            key={index}
+            key={subtask.id}
             subtaskIndex={index}
             subtask={subtask}
             onClickDeleteSubtask={subtaskIndex => onClickDeleteSubtask(subtaskIndex, taskIndex)}

@@ -105,7 +105,7 @@ export default class MyLists extends Component {
     const Taskslists = this.state.lists.map((list, index) => {
       return (
         <Lists
-          key={index}
+          key={list.id}
           listIndex={index}
           list={list}
           onClickDeleteList={listIndex => this.deleteList(listIndex)}
