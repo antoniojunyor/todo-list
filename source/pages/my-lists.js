@@ -101,7 +101,7 @@ export default class MyLists extends Component {
     }
 
     _task.subtasks.push(newSubtask);
-    this.setState({ list: _list });
+    this.setState({ lists: _list });
   }
 
   render() {
