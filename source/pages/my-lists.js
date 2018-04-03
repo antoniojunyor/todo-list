@@ -51,12 +51,16 @@ export default class MyLists extends Component {
 
   subtaskStatus(subtaskIndex, taskIndex, listIndex) {
     let _list = this.state.lists,
-        _task = _list[listIndex].tasks[taskIndex],
-        _subtask = _task.subtasks[subtaskIndex],
-        allSubtasksChecked = null;
+      _task = _list[listIndex].tasks[taskIndex],
+      _subtask = _task.subtasks[subtaskIndex],
+      allSubtasksChecked = null;
+
+    _subtask.checked = !_subtask.checked;
 
     for (let i = 0; i < _task.subtasks.length; i++) {
-      if (_task.subtasks[i].checked === false) {
+      let currentValue = _task.subtasks[i].checked;
+
+      if (!currentValue) {
         allSubtasksChecked = false;
         break;
       } else {
