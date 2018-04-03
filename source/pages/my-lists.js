@@ -39,7 +39,7 @@ export default class MyLists extends Component {
 
   taskStatus(taskIndex, listIndex) {
     let _list = this.state.lists,
-      _task = _list[listIndex].tasks[taskIndex];
+        _task = _list[listIndex].tasks[taskIndex];
 
     _task.checked = !_task.checked;
     for (let i = 0; i < _task.subtasks.length; i++) {
@@ -51,9 +51,9 @@ export default class MyLists extends Component {
 
   subtaskStatus(subtaskIndex, taskIndex, listIndex) {
     let _list = this.state.lists,
-      _task = _list[listIndex].tasks[taskIndex],
-      _subtask = _task.subtasks[subtaskIndex],
-      allSubtasksChecked = null;
+        _task = _list[listIndex].tasks[taskIndex],
+        _subtask = _task.subtasks[subtaskIndex],
+        allSubtasksChecked = null;
 
     _subtask.checked = !_subtask.checked;
 
@@ -69,15 +69,12 @@ export default class MyLists extends Component {
     }
 
     _task.checked = allSubtasksChecked;
-    _list[listIndex].tasks[taskIndex] = _task;
-    _subtask.checked = !_subtask.checked;
-    _list[listIndex].tasks[taskIndex].subtasks[subtaskIndex] = _subtask;
-    this.setState({ list: _list });
+    this.setState({ lists: _list });
   }
 
   addTask(nextTaskValue, listIndex) {
     let _list = this.state.lists,
-      _task = _list[listIndex].tasks;
+        _task = _list[listIndex].tasks;
 
     if (nextTaskValue) {
       const newTask = {
@@ -94,7 +91,7 @@ export default class MyLists extends Component {
 
   addSubtask(nextSubtaskValue, taskIndex, listIndex) {
     let _list = this.state.lists,
-        _task = _list[listIndex].tasks[taskIndex];
+      _task = _list[listIndex].tasks[taskIndex];
 
     const newSubtask = {
       id: uuidv1(),
