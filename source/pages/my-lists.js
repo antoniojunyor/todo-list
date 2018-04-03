@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuidv1 from 'uuid/v1';
 
 import Header from '../components/header';
 import Lists from '../components/lists';
@@ -78,6 +79,7 @@ export default class MyLists extends Component {
 
     if (nextTaskValue) {
       const newTask = {
+        id: uuidv1(),
         name: nextTaskValue,
         checked: false,
         subtasks: []
@@ -93,6 +95,7 @@ export default class MyLists extends Component {
         _task = _list[listIndex].tasks[taskIndex];
 
     const newSubtask = {
+      id: uuidv1(),
       name: nextSubtaskValue,
       checked: false
     }
