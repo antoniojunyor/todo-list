@@ -45,10 +45,8 @@ export default class CreateAccount extends Component {
       autoComplete: 'current-password',
     };
 
-    if (this.state.ValidForm) {
-      return (
-        <Redirect to={{ pathname: '/login' }}/>
-      );
+    if (this.state.validForm) {
+      return <Redirect push to={{ pathname: '/login' }}/>;
     }
 
     return (

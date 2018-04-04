@@ -37,10 +37,8 @@ export default class Login extends Component {
       autoComplete: 'current-password',
     };
 
-    if (this.state.ValidForm) {
-      return (
-        <Redirect to={{ pathname: '/my-list' }}/>
-      );
+    if (this.state.validForm) {
+      return <Redirect push to={{ pathname: '/my-lists' }}/>;
     }
 
     return (
