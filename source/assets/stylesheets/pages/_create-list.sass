@@ -1,0 +1,29 @@
+.as-create-lists-page
+  padding-top: 100px
+
+  .as-container-create-list-page
+    height: calc(100vh - 100px)
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    padding-top: 20px
+    padding-bottom: 20px
+
+    .as-lists
+      border-color: transparent
+
+      &:not(:empty)
+        margin-top: 20px
+
+      &:empty
+        display: none
+
+      .as-task-list
+        .as-task-item
+          .as-task-checkbox-container
+            padding-right: 0
+            margin-right: 80px
+
+            .as-button-delete-task
+              right: 0
