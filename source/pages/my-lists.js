@@ -21,44 +21,44 @@ export default class MyLists extends Component {
 
   deleteList(listIndex) {
     let _lists = this.state.lists;
-    _lists.splice(listIndex,1);
+    _lists.splice(listIndex, 1);
     this.setState({ lists: _lists });
   }
 
   deleteTask(taskIndex, listIndex) {
-    let _lists = this.state.lists;
-    _lists[listIndex].tasks.splice(taskIndex,1);
-    this.setState({ lists: _lists });
+    let lists = this.state.lists;
+    lists[listIndex].tasks.splice(taskIndex, 1);
+    this.setState({ lists });
   }
 
   deleteSubtask(subtaskIndex, taskIndex, listIndex) {
-    let _lists = this.state.lists;
-    _lists[listIndex].tasks[taskIndex].subtasks.splice(subtaskIndex,1);
-    this.setState({ lists: _lists });
+    let lists = this.state.lists;
+    lists[listIndex].tasks[taskIndex].subtasks.splice(subtaskIndex, 1);
+    this.setState({ lists });
   }
 
   taskStatus(taskIndex, listIndex) {
-    let _list = this.state.lists,
-        _task = _list[listIndex].tasks[taskIndex];
+    let list = this.state.lists,
+        task = list[listIndex].tasks[taskIndex];
 
-    _task.checked = !_task.checked;
-    for (let i = 0; i < _task.subtasks.length; i++) {
-      _task.subtasks[i].checked = _task.checked;
+    task.checked = !task.checked;
+    for (let i = 0; i < task.subtasks.length; i++) {
+      task.subtasks[i].checked = task.checked;
     }
 
-    this.setState({ lists: _list });
+    this.setState({ lists });
   }
 
   subtaskStatus(subtaskIndex, taskIndex, listIndex) {
-    let _list = this.state.lists,
-        _task = _list[listIndex].tasks[taskIndex],
-        _subtask = _task.subtasks[subtaskIndex],
+    let list = this.state.lists,
+        task = list[listIndex].tasks[taskIndex],
+        subtask = task.subtasks[subtaskIndex],
         allSubtasksChecked = null;
 
-    _subtask.checked = !_subtask.checked;
+    subtask.checked = !subtask.checked;
 
-    for (let i = 0; i < _task.subtasks.length; i++) {
-      let currentValue = _task.subtasks[i].checked;
+    for (let i = 0; i < task.subtasks.length; i++) {
+      let currentValue = task.subtasks[i].checked;
 
       if (!currentValue) {
         allSubtasksChecked = false;
@@ -68,13 +68,13 @@ export default class MyLists extends Component {
       }
     }
 
-    _task.checked = allSubtasksChecked;
-    this.setState({ lists: _list });
+    task.checked = allSubtasksChecked;
+    this.setState({ lists });
   }
 
   addTask(nextTaskValue, listIndex) {
-    let _list = this.state.lists,
-        _task = _list[listIndex].tasks;
+    let list = this.state.lists,
+        task = list[listIndex].tasks;
 
     if (nextTaskValue) {
       const newTask = {
@@ -84,14 +84,14 @@ export default class MyLists extends Component {
         subtasks: []
       }
 
-      _task.push(newTask);
-      this.setState({ lists: _list });
+      task.push(newTask);
+      this.setState({ lists });
     }
   }
 
   addSubtask(nextSubtaskValue, taskIndex, listIndex) {
-    let _list = this.state.lists,
-      _task = _list[listIndex].tasks[taskIndex];
+    let list = this.state.lists,
+        task = list[listIndex].tasks[taskIndex];
 
     const newSubtask = {
       id: uuidv1(),
@@ -99,8 +99,14 @@ export default class MyLists extends Component {
       checked: false
     }
 
-    _task.subtasks.push(newSubtask);
-    this.setState({ lists: _list });
+    task.subtasks.push(newSubtask);
+    this.setState({ lists });
+  }
+
+  editListName(value, listIndex) {
+    let lists = this.state.lists;
+    lists[listIndex].name = value;
+    this.setState({ lists });
   }
 
   render() {
@@ -117,6 +123,7 @@ export default class MyLists extends Component {
           onChangeSubtask={(subtaskIndex, taskIndex, listIndex) => this.subtaskStatus(subtaskIndex, taskIndex, listIndex)}
           onAddTask={(nextTaskValue, listIndex) => this.addTask(nextTaskValue, listIndex)}
           onClickAddSubtask={(nextSubtaskValue, taskIndex, listIndex) => this.addSubtask(nextSubtaskValue, taskIndex, listIndex)}
+          onEditListName={value => this.editListName(value, index)}
         />
       );
     });
@@ -125,9 +132,7 @@ export default class MyLists extends Component {
       <div className="as-lists-page">
         <Header />
         <div className="as-container">
-          <ul className="as-lists">
-            {Taskslists}
-          </ul>
+          <ul className="as-lists">{Taskslists}</ul>
         </div>
       </div>
     );
