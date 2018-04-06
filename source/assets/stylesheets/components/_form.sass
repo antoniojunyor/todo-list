@@ -5,6 +5,51 @@ form[class*="as-form-"]
     display: inline-block
     width: 400px
 
+  &.as-form-creat-list
+    width: 600px
+    text-align: center
+
+    legend
+      text-align: left
+      font-weight: 300
+
+    .as-tasks-group
+      &:not(:empty)
+        margin-bottom: 10px
+
+    .as-form-group
+      &.as-form-actions
+        margin-top: 20px
+
+        button
+          + button
+            margin-left: 20px
+
+      .as-form-control
+        border-color: #ef7734
+        padding: 10px 18px
+
+      .as-button-add-task,
+      .as-button-delete-task
+        position: absolute
+        top: 0
+        right: 0
+        width: 42px
+        height: 42px
+        background-color: transparent
+        padding: 0
+        text-indent: -9999px
+        background-repeat: no-repeat
+        background-position: center
+
+      .as-button-add-task
+        background-image: url('../images/button-add.png')
+        background-size: 22px
+
+      .as-button-delete-task
+        background-image: url('../images/ico-del-task.png')
+        background-size: 11px 15px
+
   &.as-form-create-account
 
     legend
@@ -12,15 +57,15 @@ form[class*="as-form-"]
       background-position: top center
       background-repeat: no-repeat
       background-size: 75px
+      text-align: center
       padding-top: 95px
+      margin-bottom: 55px
 
   legend
     width: 100%
     color: #574437
     font-size: 24px
-    line-height: 30px
-    text-align: center
-    margin-bottom: 55px
+    line-height: 34px
 
   fieldset
     border-width: 0
@@ -51,3 +96,6 @@ form[class*="as-form-"]
         line-height: 20px
         padding: 14px 18px
         +placeholder(#564337,16px,20px,1)
+
+        &.as-form-control-error
+          border-color: red
