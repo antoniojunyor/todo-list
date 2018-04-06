@@ -39,13 +39,27 @@
       background-position: 10px center
 
       .as-form-list-name
+        width: calc(100% - 80px)
 
         input
-          border: 0
+          width: 100%
+          border-width: 1px
+          border-style: solid
+          border-color: transparent
+          border-radius: 3px
           color: #564337
           font-size: 15px
-          line-height: 20px
-          padding: 0
+          line-height: 18px
+          padding: 5px 10px
+          margin-top: 5px
+          margin-bottom: 5px
+          outline: 0
+          pointer-events: none
+          transition: border-color .2s ease-out
+
+          &.as-active-field
+            pointer-events: auto
+            border-color: rgba(0,0,0,.3)
 
         button
           display: none
