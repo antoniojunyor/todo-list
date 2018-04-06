@@ -24,10 +24,11 @@ export default class Task extends Component {
       onChangeSubtask,
       onChangeTask,
       onClickDeleteTask,
-      taskIndex
+      taskIndex,
+      showInputSubtask
     } = this.props;
 
-    let listSubtasks;
+    let listSubtasks, addSubtask;
 
     if (task.subtasks) {
       listSubtasks = task.subtasks.map((subtask, index) => {
@@ -43,6 +44,17 @@ export default class Task extends Component {
       });
     }
 
+    if (showInputSubtask !== false) {
+      addSubtask = (
+        <li className="as-add-subtask">
+          <form className="as-form-add-subtask" onSubmit={() => this.addSubtask(this.state.nextSubtaskValue, taskIndex)} onChange={event => this.setState({ nextSubtaskValue: event.target.value })}>
+            <input type="text" placeholder="Adicionar subtarefa"/>
+            <button type="submit" className="as-button-add-task">Adicionar subtarefa</button>
+          </form>
+        </li>
+      );
+    }
+
     return (
       <li className="as-task-item">
         <div className="as-task-checkbox-container">
@@ -53,12 +65,7 @@ export default class Task extends Component {
 
         <ul className="as-subtask-list">
           {listSubtasks}
-          <li className="as-add-subtask">
-            <form className="as-form-add-subtask" onSubmit={() => this.addSubtask(this.state.nextSubtaskValue, taskIndex)} onChange={event => this.setState({ nextSubtaskValue: event.target.value })}>
-              <input type="text" placeholder="Adicionar subtarefa"/>
-              <button type="submit" className="as-button-add-task">Adicionar subtarefa</button>
-            </form>
-          </li>
+          {addSubtask}
         </ul>
       </li>
     );
