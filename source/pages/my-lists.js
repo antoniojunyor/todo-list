@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import uuidv1 from 'uuid/v1';
 
 import Header from '../components/header';
@@ -132,6 +133,10 @@ export default class MyLists extends Component {
       <div className="as-lists-page">
         <Header />
         <div className="as-container">
+          <h2 className="as-title-page">
+            <span>Listas</span>
+            <Link to="/create-lists" className="as-button-add">Criar Listas</Link>
+          </h2>
           <ul className="as-lists">{Taskslists}</ul>
         </div>
       </div>
