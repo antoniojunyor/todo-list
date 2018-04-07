@@ -20,10 +20,10 @@ export default class CreateList extends Component {
 
     this.onChangeInputForm = this.onChangeInputForm.bind(this);
     this.createList = this.createList.bind(this);
-    this.verifyKey = this.verifyKey.bind(this);
-    this.resetForm = this.resetForm.bind(this);
     this.deleteList = this.deleteList.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
+    this.verifyKey = this.verifyKey.bind(this);
+    this.resetForm = this.resetForm.bind(this);
     this.addTask = this.addTask.bind(this);
   }
 
@@ -38,9 +38,7 @@ export default class CreateList extends Component {
     };
 
     _savedList.push(newList);
-    this.setState({ savedList: _savedList }, () => {
-      this.resetForm();
-    });
+    this.setState({ savedList: _savedList }, () => this.resetForm());
   }
 
   onChangeInputForm(event) {
@@ -124,7 +122,6 @@ export default class CreateList extends Component {
             task={task}
             onClickRemoveTask={taskIndex => this.removeTask(taskIndex)}
             onEditTaskName={value => this.editTaskName(value, index)}
-
           />
         );
       });

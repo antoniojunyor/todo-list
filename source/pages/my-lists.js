@@ -117,13 +117,13 @@ export default class MyLists extends Component {
           key={list.id}
           listIndex={index}
           list={list}
-          onClickDeleteList={listIndex => this.deleteList(listIndex)}
-          onClickDeleteTask={(taskIndex, listIndex) => this.deleteTask(taskIndex, listIndex)}
-          onClickDeleteSubtask={(subtaskIndex, taskIndex, listIndex) => this.deleteSubtask(subtaskIndex, taskIndex, listIndex)}
-          onChangeTask={(taskIndex, listIndex) => this.taskStatus(taskIndex, listIndex)}
-          onChangeSubtask={(subtaskIndex, taskIndex, listIndex) => this.subtaskStatus(subtaskIndex, taskIndex, listIndex)}
-          onAddTask={(nextTaskValue, listIndex) => this.addTask(nextTaskValue, listIndex)}
           onClickAddSubtask={(nextSubtaskValue, taskIndex, listIndex) => this.addSubtask(nextSubtaskValue, taskIndex, listIndex)}
+          onClickDeleteSubtask={(subtaskIndex, taskIndex, listIndex) => this.deleteSubtask(subtaskIndex, taskIndex, listIndex)}
+          onChangeSubtask={(subtaskIndex, taskIndex, listIndex) => this.subtaskStatus(subtaskIndex, taskIndex, listIndex)}
+          onClickDeleteTask={(taskIndex, listIndex) => this.deleteTask(taskIndex, listIndex)}
+          onAddTask={(nextTaskValue, listIndex) => this.addTask(nextTaskValue, listIndex)}
+          onChangeTask={(taskIndex, listIndex) => this.taskStatus(taskIndex, listIndex)}
+          onClickDeleteList={listIndex => this.deleteList(listIndex)}
           onEditListName={value => this.editListName(value, index)}
         />
       );
