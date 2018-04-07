@@ -10,11 +10,13 @@ export default class FieldValidation extends Component {
       field: '',
       validField: null
     }
+
+    this.onChangeField = this.onChangeField.bind(this);
   }
 
-  onChangeField(value) {
+  onChangeField(event) {
     let rule;
-    this.setState({ field: value }, () => {
+    this.setState({ field: event.target.value }, () => {
       switch(this.props.inputType) {
         case 'text':
           rule = (this.state.field.length >= 2);
@@ -39,21 +41,32 @@ export default class FieldValidation extends Component {
   }
 
   render() {
+    const {
+      labelFor,
+      labelClass,
+      labelText,
+      inputType,
+      inputId,
+      inputClass,
+      placeholder,
+      autoComplete,
+      autofocus
+    } = this.props;
+
+    const { validField, field } = this.state;
+
     return (
       <div className="as-form-group">
-        <label htmlFor={this.props.labelFor} className={this.props.labelClass || 'as-sr-only'}>
-          {this.props.labelText}
-        </label>
+        <label htmlFor={labelFor} className={labelClass || 'as-sr-only'}>{labelText}</label>
         <input
-          type={this.props.inputType || 'text'}
-          id={this.props.inputId}
-          className={`${this.props.inputClass || 'as-form-control'} ${this.state.validField === false ? 'as-form-control-error' : ''}`}
-          placeholder={this.props.placeholder}
-          autoComplete={this.props.autoComplete}
-          autoFocus={false || this.props.autofocus}
-          value={this.state.field}
-          onChange={event => this.onChangeField(event.target.value)}
-          data-valid={this.state.validField}
+          type={inputType || 'text'}
+          id={inputId}
+          className={`${inputClass || 'as-form-control'} ${validField === false ? 'as-form-control-error' : ''}`}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          autoFocus={false || autofocus}
+          value={field}
+          onChange={this.onChangeField}
         />
       </div>
     );
