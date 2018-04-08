@@ -6,7 +6,7 @@ export default class Lists extends Component {
     super(props);
     this.state = {
       nextTaskValue: '',
-      ListName: this.props.list.name
+      listName: this.props.list.name
     }
 
     this.onChangeListName = this.onChangeListName.bind(this);
@@ -19,7 +19,7 @@ export default class Lists extends Component {
 
   toggleListInput(event) {
     if (event) event.preventDefault();
-    if (this.state.ListName) {
+    if (this.state.listName) {
       document.querySelectorAll('.as-form-list-name input')[this.props.listIndex].classList.toggle('as-active-field');
     }
   }
@@ -73,7 +73,7 @@ export default class Lists extends Component {
       <li className="as-lists-item">
         <div className="as-list-header">
           <form className="as-form-list-name" onSubmit={this.toggleListInput}>
-            <input type="text" value={this.state.ListName} onChange={this.onChangeListName}/>
+            <input type="text" value={this.state.listName} onChange={this.onChangeListName}/>
             <button type="submit">Alterar nome da lista</button>
           </form>
 
