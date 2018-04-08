@@ -172,6 +172,7 @@ export default class CreateList extends Component {
                   placeholder="Digite o nome da lista ..."
                   value={this.state.name}
                   onChange={this.onChangeInputForm}
+                  autoFocus
                 />
               </div>
 
