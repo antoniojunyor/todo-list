@@ -114,9 +114,9 @@ export default class CreateList extends Component {
   }
 
   editListName(value, listIndex) {
-    let _savedList = this.state.savedList;
-    _savedList[listIndex].name = value;
-    this.setState({ savedList: _savedList });
+    let savedList = this.state.savedList;
+    savedList[listIndex].name = value;
+    this.setState({ savedList });
   }
 
   render() {
