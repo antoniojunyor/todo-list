@@ -46,7 +46,10 @@ export default class CreateList extends Component {
   }
 
   addTask() {
-    let _tasks = this.state.tasks;
+    let tasks = this.state.tasks;
+
+    if (!this.state.task) return false;
+
     const newTask = {
       id: uuidv1(),
       name: this.state.task,
@@ -54,9 +57,9 @@ export default class CreateList extends Component {
       subtasks: []
     }
 
-    _tasks.push(newTask);
+    tasks.push(newTask);
     this.setState({
-      tasks: _tasks,
+      tasks,
       task: ''
     });
   }
@@ -110,6 +113,12 @@ export default class CreateList extends Component {
     this.setState({ savedList });
   }
 
+  editListName(value, listIndex) {
+    let _savedList = this.state.savedList;
+    _savedList[listIndex].name = value;
+    this.setState({ savedList: _savedList });
+  }
+
   render() {
     let createdTasks, TasksLists;
 
@@ -134,10 +143,11 @@ export default class CreateList extends Component {
             key={list.id}
             listIndex={index}
             list={list}
-            onClickDeleteList={this.deleteList}
-            onClickDeleteTask={this.deleteTask}
             showInputTask={false}
             showInputSubtask={false}
+            onClickDeleteList={this.deleteList}
+            onClickDeleteTask={this.deleteTask}
+            onEditListName={value => this.editListName(value, index)}
             onChangeTask={(taskIndex, listIndex) => this.taskStatus(taskIndex, listIndex)}
           />
         );
