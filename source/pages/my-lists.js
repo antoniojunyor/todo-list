@@ -133,7 +133,7 @@ export default class MyLists extends Component {
     if (this.state.lists.length) {
       lists = <ul className="as-lists">{Taskslists}</ul>;
     } else {
-      lists = <p className="as-no-lists">Você ainda não tem nenhuma lista. <br/> o que acha de criar uma?</p>;
+      lists = <p className="as-no-lists">Você ainda não tem nenhuma lista. <br/> O que acha de criar uma?</p>;
     }
 
     return (
