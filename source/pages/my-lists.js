@@ -21,9 +21,9 @@ export default class MyLists extends Component {
   }
 
   deleteList(listIndex) {
-    let _lists = this.state.lists;
-    _lists.splice(listIndex, 1);
-    this.setState({ lists: _lists });
+    let lists = this.state.lists;
+    lists.splice(listIndex, 1);
+    this.setState({ lists });
   }
 
   deleteTask(taskIndex, listIndex) {
@@ -129,6 +129,13 @@ export default class MyLists extends Component {
       );
     });
 
+    let lists;
+    if (this.state.lists.length) {
+      lists = <ul className="as-lists">{Taskslists}</ul>;
+    } else {
+      lists = <p className="as-no-lists">Você ainda não tem nenhuma lista. <br/> o que acha de criar uma?</p>;
+    }
+
     return (
       <div className="as-lists-page">
         <Header />
@@ -137,7 +144,7 @@ export default class MyLists extends Component {
             <span>Listas</span>
             <Link to="/create-lists" className="as-button-add">Criar Listas</Link>
           </h2>
-          <ul className="as-lists">{Taskslists}</ul>
+          {lists}
         </div>
       </div>
     );
