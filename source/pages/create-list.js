@@ -16,6 +16,7 @@ export default class CreateList extends Component {
       name: '',
       task: '',
       validList: null,
+      addTaskEnabled: false
     }
 
     this.onChangeInputForm = this.onChangeInputForm.bind(this);
@@ -42,7 +43,9 @@ export default class CreateList extends Component {
   }
 
   onChangeInputForm(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value }, () => {
+      this.setState({ addTaskEnabled: (this.state.task) });
+    });
   }
 
   addTask() {
@@ -60,7 +63,8 @@ export default class CreateList extends Component {
     tasks.push(newTask);
     this.setState({
       tasks,
-      task: ''
+      task: '',
+      addTaskEnabled: false
     });
   }
 
@@ -191,7 +195,7 @@ export default class CreateList extends Component {
                   onKeyUp={this.verifyKey}
                 />
 
-                <button type="button" className="as-button-add-task" onClick={this.addTask}>Adicionar Tarefa</button>
+                <button type="button" className={`as-button-add-task ${!this.state.addTaskEnabled ? 'as-button-disabled' : ''}`} onClick={this.addTask}>Adicionar Tarefa</button>
               </div>
 
               <div className="as-form-group as-form-actions">

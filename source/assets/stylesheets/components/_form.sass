@@ -45,6 +45,12 @@ form[class*="as-form-"]
       .as-button-add-task
         background-image: url('../images/button-add.png')
         background-size: 22px
+        opacity: 1
+        pointer-events: auto
+
+        &.as-button-disabled
+          opacity: 0
+          pointer-events: none
 
       .as-button-delete-task
         background-image: url('../images/ico-del-task.png')
