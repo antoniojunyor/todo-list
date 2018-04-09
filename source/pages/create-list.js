@@ -31,15 +31,15 @@ export default class CreateList extends Component {
   createList() {
     if (!this.state.name) return false;
 
-    let _savedList = this.state.savedList;
+    let savedList = this.state.savedList;
     const newList = {
       id: uuidv1(),
       name: this.state.name,
       tasks: this.state.tasks
     };
 
-    _savedList.push(newList);
-    this.setState({ savedList: _savedList }, () => this.resetForm());
+    savedList.push(newList);
+    this.setState({ savedList }, () => this.resetForm());
   }
 
   onChangeInputForm(event) {
@@ -77,9 +77,9 @@ export default class CreateList extends Component {
   }
 
   removeTask(taskIndex) {
-    let _tasks = this.state.tasks;
-    _tasks.splice(taskIndex, 1);
-    this.setState({ tasks: _tasks });
+    let tasks = this.state.tasks;
+    tasks.splice(taskIndex, 1);
+    this.setState({ tasks });
   }
 
   resetForm() {
@@ -87,20 +87,21 @@ export default class CreateList extends Component {
       lists: [],
       tasks: [],
       name: '',
-      task: ''
+      task: '',
+      addTaskEnabled: false
     });
   }
 
   deleteList(listIndex) {
-    let _savedList = this.state.savedList;
-    _savedList.splice(listIndex, 1);
-    this.setState({ savedList: _savedList });
+    let savedList = this.state.savedList;
+    savedList.splice(listIndex, 1);
+    this.setState({ savedList });
   }
 
   deleteTask(taskIndex, listIndex) {
-    let _savedList = this.state.savedList;
-    _savedList[listIndex].tasks.splice(taskIndex, 1);
-    this.setState({ savedList: _savedList });
+    let savedList = this.state.savedList;
+    savedList[listIndex].tasks.splice(taskIndex, 1);
+    this.setState({ savedList });
   }
 
   editTaskName(value, taskIndex) {
@@ -111,9 +112,9 @@ export default class CreateList extends Component {
 
   taskStatus(taskIndex, listIndex) {
     let savedList = this.state.savedList,
-        _task = savedList[listIndex].tasks[taskIndex];
+        task = savedList[listIndex].tasks[taskIndex];
 
-    _task.checked = !_task.checked;
+    task.checked = !task.checked;
     this.setState({ savedList });
   }
 
