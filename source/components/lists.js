@@ -24,6 +24,11 @@ export default class Lists extends Component {
     }
   }
 
+  onAddTask(listIndex) {
+    this.props.onAddTask(this.state.nextTaskValue, this.props.listIndex);
+    this.setState({ nextTaskValue: '' });
+  }
+
   render() {
     const {
       list,
@@ -61,8 +66,8 @@ export default class Lists extends Component {
     if (showInputTask !== false) {
       addTask = (
         <li className="as-add-task">
-          <form className="as-form-add-task" onSubmit={() => onAddTask(this.state.nextTaskValue, listIndex)} onChange={event => this.setState({ nextTaskValue: event.target.value })}>
-            <input type="text" placeholder="Adicionar Tarefa"/>
+          <form className="as-form-add-task" onSubmit={() => this.onAddTask(listIndex)} onChange={event => this.setState({ nextTaskValue: event.target.value })}>
+            <input type="text" value={this.state.nextTaskValue} placeholder="Adicionar Tarefa"/>
             <button type="submit" className="as-button-add-task">Adicionar Tarefa</button>
           </form>
         </li>

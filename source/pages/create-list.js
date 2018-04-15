@@ -38,6 +38,17 @@ export default class CreateList extends Component {
       tasks: this.state.tasks
     };
 
+    if (this.state.task) {
+      const task = {
+        id: uuidv1(),
+        name: this.state.task,
+        checked: false,
+        subtasks: []
+      }
+
+      newList.tasks.push(task);
+    }
+
     savedList.push(newList);
     this.setState({ savedList }, () => this.resetForm());
   }

@@ -48,7 +48,7 @@ export default class Task extends Component {
       addSubtask = (
         <li className="as-add-subtask">
           <form className="as-form-add-subtask" onSubmit={() => this.addSubtask(this.state.nextSubtaskValue, taskIndex)} onChange={event => this.setState({ nextSubtaskValue: event.target.value })}>
-            <input type="text" placeholder="Adicionar subtarefa"/>
+            <input type="text" value={this.state.nextSubtaskValue} placeholder="Adicionar subtarefa"/>
             <button type="submit" className="as-button-add-task">Adicionar subtarefa</button>
           </form>
         </li>
